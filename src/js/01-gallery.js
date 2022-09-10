@@ -1,3 +1,5 @@
+// Add imports above this line
+console.log(galleryItems);
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
@@ -13,7 +15,8 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 const galleryBox = document.querySelector('.gallery');
 
 const imgList = createImg(galleryItems);
-galleryBox.insertAdjacentHTML('beforeend', createImg);
+
+galleryBox.insertAdjacentHTML('beforeend', imgList);
 
 function createImg(arrayOfItems) {
   return arrayOfItems
