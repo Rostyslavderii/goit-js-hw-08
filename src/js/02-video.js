@@ -11,15 +11,25 @@ import throttle from 'lodash.throttle';
 // 6. При перезагрузке страницы воспользуйся методом setCurrentTime() для того чтобы возобновить воспроизведение с сохраненной позиции.
 // 7. Добавь в проект бибилотеку lodash.throttle и сделай так, чтобы время воспроизведения обновлялось в хранилище не чаще чем раз в секунду. */
 
+// const iframe = document.querySelector('iframe');
+// const player = new Player(iframe);
+// let lastTime = 0;
+
+// const onPlay = function (data) {
+//   lastTime = localStorage.setItem('videoplayer-current-time', data.seconds);
+//   console.log(lastTime);
+// };
+
+// player.setCurrentTime(localStorage.getItem('videoplayer-current-time'));
+// player.on('timeupdate', throttle(onPlay, 1000));
+
+
 const iframe = document.querySelector('iframe');
 const player = new Player(iframe);
-let lastTime = 0;
-
 const onPlay = function (data) {
-  lastTime = localStorage.setItem('videoplayer-current-time', data.seconds);
-  console.log(lastTime);
+  localStorage.setItem('videoplayer-current-time', data.seconds);
+  console.log(data);
 };
 
-player.setCurrentTime(localStorage.getItem('videoplayer-current-time'));
+player.setCurrentTime(+localStorage.getItem('videoplayer-current-time'));
 player.on('timeupdate', throttle(onPlay, 1000));
-
