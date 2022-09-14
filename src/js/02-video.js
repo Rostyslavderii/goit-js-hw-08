@@ -21,4 +21,5 @@ const onPlay = function (data) {
 };
 
 player.setCurrentTime(localStorage.getItem('videoplayer-current-time'));
-player.on('timeupdate', throttle(onPlay, 1500));
+player.on('timeupdate', throttle(onPlay, 1000));
+
