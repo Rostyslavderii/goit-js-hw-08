@@ -9,11 +9,14 @@ const formData = JSON.parse(localStorage.getItem(KEY_SAFFE)) || {};
 feedbackForm.email.value = formData.email ?? '';
 feedbackForm.message.value = formData.message ?? '';
 
+if (!feedbackForm.email.value || !feedbackForm.message.value )
 isButtonActive.disabled = true;
 
 feedbackForm.addEventListener('input', throttle(newFormData, 500));
 function newFormData(e) {
+  if (feedbackForm.email.value && feedbackForm.message.value )
   isButtonActive.disabled = false;
+  else  isButtonActive.disabled = true;
   formData[e.target.name] = e.target.value;
 
   localStorage.setItem(KEY_SAFFE, JSON.stringify(formData));

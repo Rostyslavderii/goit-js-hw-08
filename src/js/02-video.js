@@ -1,6 +1,4 @@
 
-import Player from '@vimeo/player';
-import throttle from 'lodash.throttle';
 
 // Выполняй это задание в файлах 02-video.html и 02-video.js. Разбей его на несколько подзадач:
 // 1. Ознакомься с документацией библиотеки Vimeo плеера.
@@ -22,6 +20,8 @@ import throttle from 'lodash.throttle';
 
 // player.setCurrentTime(localStorage.getItem('videoplayer-current-time'));
 // player.on('timeupdate', throttle(onPlay, 1000));
+import Player from '@vimeo/player';
+import throttle from 'lodash.throttle';
 
 
 const iframe = document.querySelector('iframe');
